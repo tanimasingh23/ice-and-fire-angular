@@ -1,0 +1,147 @@
+<div class="row center" *ngIf="currentItem">
+    <div>
+        <div class="post-preview center1">
+            <div *ngIf="currentItemUrl.substring(38,43)=='books'">
+                <table class="table table-responsive table-bordered size">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <h3>Book</h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="bold">Name</td>
+                            <td>{{currentItem.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Author</td>
+                            <td>{{currentItem.authors[0]}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Number of Pages</td>
+                            <td>{{currentItem.numberOfPages}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Publisher</td>
+                            <td>{{currentItem.publisher}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">ISBN</td>
+                            <td>{{currentItem.isbn}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Country</td>
+                            <td>{{currentItem.country}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Media Type</td>
+                            <td>{{currentItem.mediaType}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Release Date</td>
+                            <td>{{currentItem.released | date:'mediumDate'}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Total Characters</td>
+                            <td>{{(currentItem.characters).length}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.povCharacters[0]">
+                            <td class="bold">Total POV Characters</td>
+                            <td>{{(currentItem.povCharacters).length}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="currentItemUrl.substring(38,44)=='houses'">
+                <table class="table table-responsive table-bordered size">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <h3>House</h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="bold">Name</td>
+                            <td>{{currentItem.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Region</td>
+                            <td>{{currentItem.region}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.coatOfArms">
+                            <td class="bold">Coat Of Arms</td>
+                            <td>{{currentItem.coatOfArms}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.words">
+                            <td class="bold">Words</td>
+                            <td>{{currentItem.words}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.seats[0]">
+                            <td class="bold">Seats</td>
+                            <td>{{currentItem.seats[0]}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.titles[0]">
+                            <td class="bold">Titles</td>
+                            <td>{{currentItem.titles[0]}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.founded">
+                            <td class="bold">Founded</td>
+                            <td>{{currentItem.founded}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.swornMembers[0]">
+                            <td class="bold">Total Sworn Members</td>
+                            <td>{{(currentItem.swornMembers).length}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div *ngIf="currentItemUrl.substring(38,48)=='characters'">
+                <table class="table table-responsive table-bordered size">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <h3>Character</h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="currentItem.name">
+                            <td class="bold">Name</td>
+                            <td>{{currentItem.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Alias</td>
+                            <td>{{currentItem.aliases[0]}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Gender</td>
+                            <td>{{currentItem.gender}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.culture">
+                            <td class="bold">Culture</td>
+                            <td>{{currentItem.culture}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.playedBy[0]">
+                            <td class="bold">Played By</td>
+                            <td>{{currentItem.playedBy[0]}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.books">
+                            <td class="bold">Total Books</td>
+                            <td>{{(currentItem.books).length}}</td>
+                        </tr>
+                        <tr *ngIf="currentItem.tvSeries[0]">
+                            <td class="bold">Total TV Series</td>
+                            <td>{{(currentItem.tvSeries).length}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a class="btn btn-warning" (click)="goBackToPreviousPage()">Go Back </a>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="text-center">
+    <label class="label">
+        <h5>Search by Type</h5>
+        <input class="form" placeholder="Book/House/Character" class="form-control text-center" [(ngModel)]="search.url">
+    </label>
+    <br>
+</div>
+<br />
+<div *ngFor="let i of allData | filterBy: search" class="row">
+    <div class="col-md-12 left">
+        <div *ngIf="i.url.substring(38,43)=='books'" class="card book">
+            <h4 class="card-title text-center">Book</h4>
+            <div class="card-header text-center">{{i.name | uppercase}}</div>
+            <div class="card-body text-center ">Author: {{i.authors[0]}}</div>
+            <a [routerLink]="['/view',i.url]" class="btn btn-primary btn-md">Details</a>
+        </div>
+        <br />
+    </div>
+
+    <div class="col-md-12 left">
+        <div *ngIf="i.url.substring(38,48)=='characters'" class="card character">
+            <h4 class="card-title text-center">Character</h4>
+            <div class="card-header text-center ">{{i.aliases[0] | uppercase}}</div>
+            <div class="card-body text-center ">Gender: {{i.gender}}</div>
+            <a [routerLink]="['/view',i.url]" class="btn btn-primary btn-md">Details</a>
+        </div>
+    </div>
+    <br />
+
+    <div class="col-md-12 left">
+        <div *ngIf="i.url.substring(38,44)=='houses'" class="card house ">
+            <h4 class="card-title text-center">House</h4>
+            <div class="card-header text-center">{{i.name | uppercase}}</div>
+            <div class="card-body text-center"> Region: {{i.region}}</div>
+            <a [routerLink]="['/view',i.url]" class="btn btn-primary btn-md">Details</a>
+        </div>
+    </div>
+</div>
